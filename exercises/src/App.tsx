@@ -1,4 +1,8 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, SafeAreaView} from 'react-native';
 
-export default () => <Text>My App!</Text>;
+export default () => (
+  <SafeAreaView>
+    <Text>My App!</Text>
+  </SafeAreaView>
+);
