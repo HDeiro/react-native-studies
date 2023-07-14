@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Pastel",
+    "price": 2.99
+  },
+  {
+    "id": 2,
+    "name": "Kibe",
+    "price": 3.99
+  },
+  {
+    "id": 3,
+    "name": "Pipoca",
+    "price": 1.99
+  },
+  {
+    "id": 4,
+    "name": "Empada",
+    "price": 4.99
+  }
+]
