@@ -1,10 +1,11 @@
 import React from 'react';
-import {SafeAreaView, Platform, FlatList, Text} from 'react-native';
+import {SafeAreaView, Platform} from 'react-native';
 import {Title} from './components/Title';
-import products from './data/products.json';
+import ProductList from './components/ProductList';
 
 export default () => (
   <SafeAreaView>
+    {/* OS Detection Example */}
     {(() => {
       switch (Platform.OS) {
         case 'android':
@@ -16,16 +17,7 @@ export default () => (
       }
     })()}
 
-    <FlatList
-      data={products}
-      keyExtractor={({id}) => `product-${id}`}
-      renderItem={({item: {name, price}}) => {
-        return (
-          <Text>
-            {name} (R${price})
-          </Text>
-        );
-      }}
-    />
+    {/* FlatList Example */}
+    <ProductList />
   </SafeAreaView>
 );
