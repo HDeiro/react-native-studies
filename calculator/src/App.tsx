@@ -16,22 +16,28 @@ const styles = StyleSheet.create({
 
 const App = () => {
   const calcDataRef = useRef(basicCalcData);
-  const [value, updateValue] = useState('0');
+  const [displayValue, updateDisplayValue] = useState('0');
+  const [operation, setOperation] = useState<string | null>(null);
+  const [values, setValues] = useState<number[]>([0, 0]);
+  const [currentValuePointer, setCurrentValuePointer] = useState(0);
 
   const clearMemory = () => {
-    updateValue('0');
+    setOperation(null);
+    updateDisplayValue('0');
+    setValues([0, 0]);
+    setCurrentValuePointer(0);
   };
 
-  const executeFunctionalOperation = (operation: string | number) => {
-    switch (operation) {
+  const executeFunctionalOperation = (functionalOperation: string | number) => {
+    switch (functionalOperation) {
       case 'AC':
         clearMemory();
         break;
     }
   };
 
-  const executeMathOperation = (operation: string | number) => {
-    switch (operation) {
+  const executeMathOperation = (mathOperation: string | number) => {
+    switch (mathOperation) {
       case 'AC':
         clearMemory();
         break;
@@ -50,15 +56,32 @@ const App = () => {
         executeMathOperation(operationOrOperand);
         break;
       default:
-        const operand = String(operationOrOperand);
-        updateValue(operand);
-        console.log('numeric', operand);
+        const isSeparator = operationOrOperand === '.';
+
+        // Sanitizes operand 1, cleaning when there is a leading 0
+        const parsedOperand1 = displayValue === '0' ? '' : displayValue;
+        // Sanitizes operand 2, cleaning when adding another separator when the first one already exists (ex: 2.3334. is invalid)
+        const parsedOperand2 =
+          isSeparator && displayValue.includes('.') ? '' : operationOrOperand;
+
+        // Gets new display value to be updated on states
+        const newDisplayValue = parsedOperand1 + parsedOperand2;
+
+        updateDisplayValue(newDisplayValue);
+
+        // If that wasn't a separator operation, then logic for values should be refreshed
+        if (!isSeparator) {
+          const floatValue = parseFloat(newDisplayValue);
+          const newValues = [...values];
+          newValues[currentValuePointer] = floatValue;
+          setValues(newValues);
+        }
     }
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <Display value={value} />
+      <Display value={displayValue} />
       <View style={styles.buttonContainer}>
         {calcDataRef.current.map(({label, type, spaceSlot}) => (
           <Button

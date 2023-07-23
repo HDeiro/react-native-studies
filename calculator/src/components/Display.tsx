@@ -22,9 +22,7 @@ const styles = StyleSheet.create({
 const Display = ({value}: PropsType) => {
   return (
     <View style={styles.Display}>
-      <Text style={styles.DisplayValue} numberOfLines={1}>
-        {value}
-      </Text>
+      <Text style={styles.DisplayValue}>{value}</Text>
     </View>
   );
 };

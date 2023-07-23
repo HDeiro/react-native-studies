@@ -76,7 +76,7 @@
   },
   {
     "label": ".",
-    "type": "FunctionalOperation",
+    "type": "NumberComplement",
     "spaceSlot": 1
   },
   {
