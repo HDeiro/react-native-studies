@@ -43,7 +43,7 @@ const Button = ({onClick, label, type, spaceSlot}: PropsType) => {
     const stylesToBeApplied = [];
     stylesToBeApplied.push(styles.Button);
 
-    if (type === 'MathOperation' && label !== '=') {
+    if (type === 'MathOperation') {
       stylesToBeApplied.push(styles.ButtonForMathOperation);
     }
 
