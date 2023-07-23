@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 type PropsType = {
-  label: string | number;
+  label: string;
   type: string;
   spaceSlot: number;
   onClick: (event: GestureResponderEvent) => void;
@@ -43,7 +43,7 @@ const Button = ({onClick, label, type, spaceSlot}: PropsType) => {
     const stylesToBeApplied = [];
     stylesToBeApplied.push(styles.Button);
 
-    if (type === 'MathOperation') {
+    if (type === 'MathOperation' && label !== '=') {
       stylesToBeApplied.push(styles.ButtonForMathOperation);
     }
 
