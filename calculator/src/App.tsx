@@ -22,10 +22,12 @@ const App = () => {
     <SafeAreaView style={styles.container}>
       <Display value={value} />
       <View style={styles.buttonContainer}>
-        {calcDataRef.current.map(({label}) => (
+        {calcDataRef.current.map(({label, type, spaceSlot}) => (
           <Button
             key={`calc-action-${label}`}
             label={label}
+            spaceSlot={spaceSlot}
+            type={type}
             onClick={() => console.log('aaaa')}
           />
         ))}
