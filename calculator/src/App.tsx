@@ -18,6 +18,44 @@ const App = () => {
   const calcDataRef = useRef(basicCalcData);
   const [value, updateValue] = useState('0');
 
+  const clearMemory = () => {
+    updateValue('0');
+  };
+
+  const executeFunctionalOperation = (operation: string | number) => {
+    switch (operation) {
+      case 'AC':
+        clearMemory();
+        break;
+    }
+  };
+
+  const executeMathOperation = (operation: string | number) => {
+    switch (operation) {
+      case 'AC':
+        clearMemory();
+        break;
+    }
+  };
+
+  const executeOperation = (
+    operationOrOperand: string | number,
+    type: string,
+  ) => {
+    switch (type) {
+      case 'FunctionalOperation':
+        executeFunctionalOperation(operationOrOperand);
+        break;
+      case 'MathOperation':
+        executeMathOperation(operationOrOperand);
+        break;
+      default:
+        const operand = String(operationOrOperand);
+        updateValue(operand);
+        console.log('numeric', operand);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Display value={value} />
@@ -28,7 +66,7 @@ const App = () => {
             label={label}
             spaceSlot={spaceSlot}
             type={type}
-            onClick={() => console.log('aaaa')}
+            onClick={() => executeOperation(label, type)}
           />
         ))}
       </View>

@@ -2,7 +2,7 @@
   {
     "label": "AC",
     "type": "FunctionalOperation",
-    "spaceSlot": 1
+    "spaceSlot": 3
   },
   {
     "label": "/",
@@ -72,7 +72,7 @@
   {
     "label": 0,
     "type": "Number",
-    "spaceSlot": 1
+    "spaceSlot": 2
   },
   {
     "label": ".",

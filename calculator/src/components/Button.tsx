@@ -10,7 +10,7 @@ import {
 type PropsType = {
   label: string | number;
   type: string;
-  spaceSlot: 1 | 2 | 3;
+  spaceSlot: number;
   onClick: (event: GestureResponderEvent) => void;
 };
 
@@ -54,7 +54,7 @@ const Button = ({onClick, label, type, spaceSlot}: PropsType) => {
     }
 
     return stylesToBeApplied;
-  }, [type]);
+  }, [type, spaceSlot]);
 
   return (
     <TouchableHighlight onPress={onClick}>
