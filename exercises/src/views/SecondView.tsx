@@ -1,10 +1,10 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
-import {Title} from '../components/Title';
+import {SafeAreaView, Text} from 'react-native';
+import {Styles} from '../components/Title';
 
 const SecondView = () => (
   <SafeAreaView>
-    <Title content="Second View" />;
+    <Text style={Styles.Title}>SECOND VIEW</Text>
   </SafeAreaView>
 );
 

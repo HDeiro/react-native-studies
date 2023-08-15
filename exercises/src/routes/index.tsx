@@ -1,7 +1,8 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import Stack from './stack';
+// import Stack from './stack';
+import Tab from './tab';
 
 const style = StyleSheet.create({
   SafeAreaView: {
@@ -13,7 +14,8 @@ export default () => {
   return (
     <SafeAreaView style={style.SafeAreaView}>
       <NavigationContainer>
-        <Stack />
+        {/* <Stack /> */}
+        <Tab />
       </NavigationContainer>
     </SafeAreaView>
   );

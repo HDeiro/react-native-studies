@@ -5,7 +5,7 @@ type PropsType = {
   content: string;
 };
 
-const Styles = StyleSheet.create({
+export const Styles = StyleSheet.create({
   Title: {
     fontWeight: '600',
     fontSize: 32,
